@@ -1,0 +1,6 @@
+[deps]
+Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
+DynamicPricingExamples = "e659ecb8-bdd8-4fa2-bf47-d88ae2a2c926"
+
+[compat]
+Documenter = "~0.24"

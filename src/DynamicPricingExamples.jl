@@ -1,0 +1,3 @@
+module DynamicPricingExamples
+
+end # module
