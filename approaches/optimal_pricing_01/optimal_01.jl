@@ -68,7 +68,7 @@ sm = SampleModel("opt_01", opt_01)
 rc = stan_sample(sm, data=data)
 
 if success(rc)
-	chn = read_samples(sm)
+	chn = read_samples(sm; output_format=:mcmcchains)
 
 	chns = set_section(chn, 
 	    Dict(

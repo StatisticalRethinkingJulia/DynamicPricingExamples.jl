@@ -38,7 +38,7 @@ rc = stan_sample(sm; data=demand_data)
 
 if success(rc)
   # Convert to an MCMCChains.Chains object
-  chns = read_samples(sm)
+  chns = read_samples(sm; output_format=:mcmcchains)
   show(chns)
   plot(chns)
   savefig(joinpath(@__DIR__, "fig_01.png"))

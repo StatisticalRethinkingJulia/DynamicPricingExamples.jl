@@ -66,19 +66,19 @@ sm = SampleModel("opt_01", opt_01)
 rc = stan_sample(sm, data=data)
 
 if success(rc)
-	chns = read_samples(sm)
+	chns = read_samples(sm; output_format=:mcmcchains)
+	show(chns)
 	plot(chns)
 	savefig(joinpath(ProjDir, "plots", "chains.png"))
 
-	dfs = DataFrame(chns)
-	show(chns)
+	dfs = read_samples(sm; output_format=:dataframe)
 	
-	dfsa = DataFrame(chn)
-	density(dfsa[:, Symbol("mu_pred.1")], label="mu_pred.1")
-	for i in 2:3:N
-		density!(dfsa[:, Symbol("mu_pred.$i")], label="mu_pred.$i")
-	end
-	savefig(joinpath(ProjDir, "plots", "density.png"))
+	dfsa = DataFrame(chns)
+	#density(dfsa[:, Symbol("mu_pred.1")], label="mu_pred.1")
+	#for i in 2:3:N
+	#	density!(dfsa[:, Symbol("mu_pred.$i")], label="mu_pred.$i")
+	#end
+	#savefig(joinpath(ProjDir, "plots", "density.png"))
 
 
 	p = 3.4:0.01:4.0
